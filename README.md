@@ -1,57 +1,103 @@
-***aicoshar-parser-suite***
-*********************************************************************
+# AICOS-HAR-Dataset
 
-**Authors:** Marília Barandas, Ana Cravidão Pereira, Carolina Carvalho, Duarte Folgado, Ricardo Santos, Maria Russo, Vânia Guimarães, Hugo Gamboa, Inês Sousa
-Date: April 2026
-Institution: Fraunhofer Portugal AICOS
-Contact: marilia.barandas@aicos.fraunhofer.pt
+[![Python](https://img.shields.io/badge/python-3.7+-informational.svg)](<>)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=black)](https://pycqa.github.io/isort)
+[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://mkdocstrings.github.io)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![mlflow](https://img.shields.io/badge/tracking-mlflow-blue)](https://mlflow.org)
+[![dvc](https://img.shields.io/badge/data-dvc-9cf)](https://dvc.org)
+[![Hydra](https://img.shields.io/badge/Config-Hydra-89b8cd)](https://hydra.cc)
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![pytest](https://img.shields.io/badge/pytest-enabled-brightgreen)](https://github.com/pytest-dev/pytest)
+[![conventional-commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow)](https://github.com/commitizen-tools/commitizen)
 
----------------------------------------------------------------------
+A short description of the project. No quotes.
 
-**Citation:** If you use the aicoshar-parser-suite tool, please cite the following work, which provides information about the AICOS-HAR dataset and the results of baseline experiments including some of the public datasets supported by aicoshar-parser-suite.
+## Prerequisites
 
-{CITATION}
+You will need:
 
----------------------------------------------------------------------
+- `python` (see `pyproject.toml` for full version)
+- `Git`
+- `Make`
+- a `.secrets` file with the required secrets and credentials
+- load environment variables from `.env`
 
-The aicoshar-parser-suite is a repository that provides a tool for automatic download and structure harmonization of 20 public human activity recognition datasets. The public datasets were harmonized according the AICOS-HAR dataset structure and content, meaning only activities and sensors present in AICOS-HAR dataset were kept. However, most parsers are easily adaptable.
+## Installation
 
-The harmonized structure is 
-`ParticipantID/Activity_TrialID/Device_Position/Sensor.txt`.
+Clone this repository (requires git ssh keys)
 
-- ParticipantID: Identificator of the participant. When existing, the original dataset ID's were kept.
-- Activity: Activity performed by the participant. When the protocol features more then one activity, the acquisition was segmented into single-activity acquisitions. 
-- TrialID: Repetition of the activity by the same participant.
-- Device: Model of the device. If the model was not provided, SP identifies smartphones and W identifies wearables.
-- Position: Body position in which the device was placed.
+```
+git clone --recursive ssh://git@git.fraunhofer.pt/nextgenai/aicoshar.git
+cd aicoshar
+```
 
-The inertial data is structured in the format:
-Timestamp  |  Sensor_x  |  Sensor_y  | Sensor_z
+Install dependencies
 
-The barometric data is structured in the format:
-Timestamp  |  Sensor
+```
+conda create -y -n python310 python=3.10
+conda activate python310
+```
 
-Physical units:
-- Accelerometer: meters per second squared (m/s²) 
-- Barometer: millibar (mbar) 
-- Gyroscope: radians per second (rad/s) 
-- Magnetometer: microtesla (µT) 
-- Timestamp: nanosecond (ns)
+or if environment already exists
 
-The public human activity recognition datasets supported by aicoshar-parser-suite are: AICOS-HAR, CHARM, DailySportsActivities, ExtraSensory, FLAAP, HARSense, HHAR, HuGaDB, KuHAR, MHEALTH, MotionSense, Opportunity, PAMAP2, RealWorldHAR, Shoaib13, Shoaib14, Shoaib16, UCIHAR, UniMiB-SHAR, USC-HAD and WISDM. Only datasets that are publicly accessible without requiring login support automatic download.
+```
+conda env create -f environment.yml
+conda activate python310
+```
 
----------------------------------------------------------------------
+And then setup all virtualenv using make file recipe
 
-**Usage Notes:** 
+```
+(python310) $ make setup-all
+```
 
-To run the aicoshar-parser-suite, execute the script `main.py`. 
+Use pre-commit hooks to standardize code formatting of your project and save mental energy.
+Simply install pre-commit package and pre-commit hooks with:
 
-*Optional parameters:*
+```
+make install-pre-commit
+```
 
-`-- input_dir`: Path to the directory where your dataset is stored locally, or where it should be automatically downloaded. Default: data/raw in the project repository.
+After that your code will be automatically reformatted on every new commit.
 
-`-- outpu_dir`: Path to the directory where the reorganized dataset will be saved. Default: data/processed in the project repository.
+## Documentation
 
-`-- select_datasets`: List of datasets you want to download and reorganize. Default: All supported datasets.
+Full documentation is available here: [`docs/`](docs).
 
-`-- remove_raw`: If set, removes the original raw dataset before reorganization.
+## Dev
+
+See the [Developer](docs/DEVELOPER.md) guidelines for more information.
+
+## Contributing
+
+Contributions of any kind are welcome. Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details and
+the process for submitting pull requests to us.
+
+## Changelog
+
+See the [Changelog](CHANGELOG.md) for more information.
+
+## Security
+
+Thank you for improving the security of the project, please see the [Security Policy](docs/SECURITY.md)
+for more information.
+
+## License
+
+This project is licensed under the terms of the `No license` license.
+See [LICENSE](LICENSE) for more details.
+
+## Citation
+
+If you publish work that uses AICOS-HAR-Dataset, please cite AICOS-HAR-Dataset as follows:
+
+```bibtex
+@misc{AICOS-HAR-Dataset aicoshar,
+  author = {Fraunhofer AICOS},
+  title = {A short description of the project. No quotes.},
+  year = {2025},
+}
+```
