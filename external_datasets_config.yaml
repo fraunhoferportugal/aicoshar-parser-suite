@@ -1,0 +1,1355 @@
+CHARM:
+  dataset_folder: "CHARM"
+  output_folder: "CHARM"
+
+  # Dataset basic info
+  rate: 20
+  rate_unit: Hz
+  time_unit: ns
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+
+  positions:
+    - Hand
+
+  # Dataset parser implementation variables
+  activity_map:
+    CHAIR: Sitting
+    COUCH: Sitting
+    STANDING: Standing
+    LYING_UP: LyingDown
+    LYING_SIDE: LyingDown
+    WALKING: Walking
+    RUNNING: Running
+    UPSTAIRS: Upstairs
+    DOWNSTAIRS: Downstairs
+
+  timestamp_column: "time"
+  activity_column: "activity"
+  participant_column: "uuid"
+  repetition_column: "repetition"
+
+  acc_columns: ["acc_x", "acc_y", "acc_z"]
+  gyr_columns: ["gyr_x", "gyr_y", "gyr_z"]
+
+  acc_csv_filename: "CHARM_v1.1_accelerometer.csv"
+  gyr_csv_filename: "CHARM_v1.1_gyroscope.csv"
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+  device_name: "SP1"
+  min_samples_per_session: 10
+
+  # Partition
+  test_ratio: 0.2
+  random_seed: 42
+
+DailySportsActivities:
+  dataset_folder: "DailySportsActivities/data"
+  output_folder: "DailySportsActivities"
+
+  # Dataset basic info
+  rate: 25
+  rate_unit: Hz
+  time_unit: N/A
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+    mag: microTesla
+
+  positions:
+    - Right Arm
+    - Left Arm
+    - Right Leg
+    - Left Leg
+    - Torso
+
+  # Dataset parser implementation variables
+  activity_map:
+    "a01": "Sitting"
+    "a02": "Standing"
+    "a03": "LyingDown"
+    "a04": "LyingDown"
+    "a05": "Upstairs"
+    "a06": "Downstairs"
+    "a09": "Walking"
+    "a10": "Walking"
+    "a11": "Walking"
+    "a12": "Running"
+
+  position_map:
+    "p1": "Torso"
+    "p2": "RightArm"
+    "p3": "LeftArm"
+    "p4": "RightLeg"
+    "p5": "LeftLeg"
+
+  header:
+    - T_xacc
+    - T_yacc
+    - T_zacc
+    - T_xgyro
+    - T_ygyro
+    - T_zgyro
+    - T_xmag
+    - T_ymag
+    - T_zmag
+    - RA_xacc
+    - RA_yacc
+    - RA_zacc
+    - RA_xgyro
+    - RA_ygyro
+    - RA_zgyro
+    - RA_xmag
+    - RA_ymag
+    - RA_zmag
+    - LA_xacc
+    - LA_yacc
+    - LA_zacc
+    - LA_xgyro
+    - LA_ygyro
+    - LA_zgyro
+    - LA_xmag
+    - LA_ymag
+    - LA_zmag
+    - RL_xacc
+    - RL_yacc
+    - RL_zacc
+    - RL_xgyro
+    - RL_ygyro
+    - RL_zgyro
+    - RL_xmag
+    - RL_ymag
+    - RL_zmag
+    - LL_xacc
+    - LL_yacc
+    - LL_zacc
+    - LL_xgyro
+    - LL_ygyro
+    - LL_zgyro
+    - LL_xmag
+    - LL_ymag
+    - LL_zmag
+
+  timestamp_column: "Timestamp"
+
+  acc_torso_columns:
+    - "T_xacc"
+    - "T_yacc"
+    - "T_zacc"
+  gyro_torso_columns:
+    - "T_xgyro"
+    - "T_ygyro"
+    - "T_zgyro"
+  mag_torso_columns:
+    - "T_xmag"
+    - "T_ymag"
+    - "T_zmag"
+
+  acc_ra_columns:
+    - "RA_xacc"
+    - "RA_yacc"
+    - "RA_zacc"
+  gyro_ra_columns:
+    - "RA_xgyro"
+    - "RA_ygyro"
+    - "RA_zgyro"
+  mag_ra_columns:
+    - "RA_xmag"
+    - "RA_ymag"
+    - "RA_zmag"
+
+  acc_la_columns:
+    - "LA_xacc"
+    - "LA_yacc"
+    - "LA_zacc"
+  gyro_la_columns:
+    - "LA_xgyro"
+    - "LA_ygyro"
+    - "LA_zgyro"
+  mag_la_columns:
+    - "LA_xmag"
+    - "LA_ymag"
+    - "LA_zmag"
+
+  acc_rl_columns:
+    - "RL_xacc"
+    - "RL_yacc"
+    - "RL_zacc"
+  gyro_rl_columns:
+    - "RL_xgyro"
+    - "RL_ygyro"
+    - "RL_zgyro"
+  mag_rl_columns:
+    - "RL_xmag"
+    - "RL_ymag"
+    - "RL_zmag"
+
+  acc_ll_columns:
+    - "LL_xacc"
+    - "LL_yacc"
+    - "LL_zacc"
+  gyro_ll_columns:
+    - "LL_xgyro"
+    - "LL_ygyro"
+    - "LL_zgyro"
+  mag_ll_columns:
+    - "LL_xmag"
+    - "LL_ymag"
+    - "LL_zmag"
+
+  wearable_prefix: "W"
+  one_digit_subject_prefix: "s0"
+  subject_prefix: "s"
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+  mag_filename: "Magnetometer.txt"
+
+ExtraSensory:
+  dataset_folder: "ExtraSensory"
+  output_folder: "ExtraSensory"
+
+  # Dataset basic info
+  rate: 40
+  rate_unit: Hz
+  time_unit: ns
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+    mag: uT
+
+  positions:
+    - Bag
+    - Hand
+    - Pocket
+    - Table
+
+  # Dataset parser implementation variables
+  activity_map:
+    FIX_walking: Walking
+    LYING_DOWN: LyingDown
+    SITTING: Sitting
+    FIX_running: Running
+    STAIRS_-_GOING_DOWN: Downstairs
+    STAIRS_-_GOING_UP: Upstairs
+    ELEVATOR: Lift
+
+  position_map:
+    PHONE_IN_HAND: Hand
+    PHONE_IN_BAG: Bag
+    PHONE_IN_POCKET: Pocket
+    PHONE_ON_TABLE: Table
+
+  sensor_folder:
+    accelerometer: ExtraSensory.raw_measurements.raw_acc.zip
+    gyroscope: ExtraSensory.raw_measurements.proc_gyro.zip
+    magnetometer: ExtraSensory.raw_measurements.raw_magnet.zip
+    users: ExtraSensory.per_uuid_features_labels
+
+  user_file_suffix: ".features_labels.csv.gz"
+  sensor_file_suffix: ".dat"
+
+  acc_filename: "Accelerometer.txt"
+  gyro_filename: "Gyroscope.txt"
+  mag_filename: "Magnetometer.txt"
+
+  device_prefix: "SP1_"
+  unknown_position_label: "UNKNOWN"
+  unknown_position_folder: "Unknown"
+
+  timestamp_column_name: "timestamp"
+  label_source_column: "label_source"
+  label_prefix: "label:"
+
+  ns_conversion: 1000000000
+  acc_ms2_conversion: 9.80665
+
+  zip_sensor_folders:
+    accelerometer: "raw_acc"
+    gyroscope: "proc_gyro"
+    magnetometer: "raw_magnet"
+
+  # Partition
+  test_ratio: 0.2
+  random_seed: 42
+
+FLAAP:
+  dataset_folder: "FLAAP/FLAAP An open Human Activity Recognition (HAR) dataset for learning and finding the associated activity patterns/FLAAP An open Human Activity Recognition (HAR) dataset for learning and finding the associated activity patterns/FLAAP"
+  output_folder: "FLAAP"
+
+  # Dataset basic info
+  rate: 100
+  rate_unit: Hz
+  time_unit: 'ms'
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+
+  positions:
+    - Waist
+
+  # Dataset parser implementation variables
+  activity_map:
+    Walking: Walking
+    Sitting: Sitting
+    Standing: Standing
+    Jogging: Running
+    Laying: LyingDown
+    StairUp: Upstairs
+    StairDown: Downstairs
+
+  subjects_folder: "Subject-Wise"
+  master_folder: "Master File"
+  acc_filename: "Accelerometer.txt"
+  gyro_filename: "Gyroscope.txt"
+  acc_keyword: acc
+  gyro_keyword: gyro
+  trimmed_keyword: trimmed
+
+  activity_column: "Activity"
+  excel_columns: [0, 1, 2, 3, 4]
+  time_column_index: 0
+  n_output_columns: 4
+  device_position: "SP1_Hip"
+
+  ns_conversion: 1000000
+
+  # Partition
+  test_ratio: 0.2
+  random_seed: 42
+
+HARSense:
+  dataset_folder: "HARSense"
+  output_folder: "HARSense"
+
+  #Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: N/A
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+
+  positions:
+    - Front Pocket
+    - Waist
+
+  # Dataset parser implementation variables
+  activity_map:
+    Walking: Walking
+    walking: Walking
+    Standing: Standing
+    sitting: Sitting
+    Sitting: Sitting
+    Running: Running
+    upstaires: Upstairs
+    downstaires: Downstairs
+
+  activity_column: "activity"
+  timestamp_column: "Timestamp"
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+  acc_columns:
+    - Acc-X
+    - Acc-Y
+    - Acc-Z
+  gyr_columns:
+    - RR-X
+    - RR-Y
+    - RR-Z
+
+  trial_id: "_1"
+  smartphone_position_id: "SP1_P1"
+
+  ns_conversion: 1e9
+
+HHAR:
+  dataset_folder: "HHAR/heterogeneity+activity+recognition/Activity recognition exp/Activity recognition exp/"
+  output_folder: "HHAR"
+
+  # Dataset basic info
+  rate: N/A
+  rate_unit: Hz
+  time_unit: ns
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+
+  positions:
+    - Waist
+    - Wrist
+
+  # Dataset parser implementation variables
+  activity_map:
+    walk: Walking
+    stand: Standing
+    sit: Sitting
+    bike: Biking
+    stairsdown: Downstairs
+    stairsup: Upstairs
+
+  keep_activities: ["Walking", "Standing", "Sitting", "Downstairs", "Upstairs"]
+
+  timestamp_column: "Arrival_Time"
+  activity_column: "gt"
+  sensor_column: "Sensor"
+  device_column: "Device"
+  participant_column: "User"
+
+  filenames:
+    Phones_accelerometer.csv: Accelerometer
+    Phones_gyroscope.csv: Gyroscope
+    Watch_accelerometer.csv: Accelerometer
+    Watch_gyroscope.csv: Gyroscope
+
+  device_map:
+    nexus4_1: [Nexus4-1, Waist]
+    nexus4_2: [Nexus4-2, Waist]
+    s3_1: [SamsungS3-1, Waist]
+    s3_2: [SamsungS3-2, Waist]
+    s3mini_1: [SamsungS3Mini-1, Waist]
+    s3mini_2: [SamsungS3Mini-2, Waist]
+    samsungold_1: [SamsungGold-1, Waist]
+    samsungold_2: [SamsungGold-2, Waist]
+    gear_1: [Gear-1, Wrist]
+    gear_2: [Gear-2, Wrist]
+    lgwatch_1: [LGWatch-1, Wrist]
+    lgwatch_2: [LGWatch-2, Wrist]
+
+  min_samples_per_session: 15
+  max_gap_ns: 1000000000
+
+  # Partition
+  test_ratio: 0.2
+  random_seed: 42
+
+HuGaDB:
+  dataset_folder: "HuGaDB/HumanGaitDataBase/Data"
+  output_folder: "HuGaDB"
+
+  # Dataset basic info
+  rate: 56.3500
+  rate_unit: Hz
+  time_unit: N/A
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    - ADC
+    - ADC
+
+  positions:
+    - "RightFoot"
+    - "RightShin"
+    - "RightThigh"
+    - "LeftFoot"
+    - "LeftShin"
+    - "LeftThigh"
+
+  # Dataset parser implementation variables
+  activity_map:
+    "walking": "Walking"
+    "running": "Running"
+    "sitting": "Sitting"
+    "standing": "Standing"
+    "going_up": "Upstairs"
+    "going_down": "Downstairs"
+    "up_by_elevator": "LiftUp"
+    "down_by_elevator": "LiftDown"
+
+  activity_map_various:
+    1: "Walking"
+    2: "Running"
+    3: "Upstairs"
+    4: "Downstairs"
+    5: "Sitting"
+    8: "Standing"
+    10: "LiftUp"
+    11: "LiftDown"
+
+  timestamp_column: "Timestamp"
+  activity_column: "act"
+
+  acc_right_foot_columns:
+    - "RF_acc_x"
+    - "RF_acc_y"
+    - "RF_acc_z"
+
+  acc_right_shin_columns:
+    - "RS_acc_x"
+    - "RS_acc_y"
+    - "RS_acc_z"
+
+  acc_right_tight_columns:
+    - "RT_acc_x"
+    - "RT_acc_y"
+    - "RT_acc_z"
+
+  acc_left_foot_columns:
+    - "LF_acc_x"
+    - "LF_acc_y"
+    - "LF_acc_z"
+
+  acc_left_shin_columns:
+    - "LS_acc_x"
+    - "LS_acc_y"
+    - "LS_acc_z"
+
+  acc_left_tight_columns:
+    - "LT_acc_x"
+    - "LT_acc_y"
+    - "LT_acc_z"
+
+  gyr_right_foot_columns:
+    - "RF_gyro_x"
+    - "RF_gyro_y"
+    - "RF_gyro_z"
+
+  gyr_right_shin_columns:
+    - "RS_gyro_x"
+    - "RS_gyro_y"
+    - "RS_gyro_z"
+
+  gyr_right_tight_columns:
+    - "RT_gyro_x"
+    - "RT_gyro_y"
+    - "RT_gyro_z"
+
+  gyr_left_foot_columns:
+    - "LF_gyro_x"
+    - "LF_gyro_y"
+    - "LF_gyro_z"
+
+  gyr_left_shin_columns:
+    - "LS_gyro_x"
+    - "LS_gyro_y"
+    - "LS_gyro_z"
+
+  gyr_left_tight_columns:
+    - "LT_gyro_x"
+    - "LT_gyro_y"
+    - "LT_gyro_z"
+
+  various_tag: "various"
+  wearable_prefix: "W"
+  accelerometer_indicator: "acc"
+  gyroscope_indicator: "gyro"
+
+  ns_conversion: 1e9
+  int16_conversion: 32768
+  ms2_conversion: 2
+  degrees_conversion: 2000
+  rads_conversion: 180
+
+  minimum_duration: 2
+  minimum_lenght: 2
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+KuHAR:
+  dataset_folder: "KuHAR/1.Raw_time_domian_data/1.Raw_time_domian_data"
+  output_folder: "KuHAR"
+
+  # Dataset basic info
+  rate: 100
+  rate_unit: Hz
+  time_unit: s
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+
+  positions:
+    - Waist
+
+  # Dataset parser implementation variables
+  activity_map:
+    Stand: Standing
+    Sit: Sitting
+    Lay: LyingDown
+    Walk: Walking
+    Run: Running
+    Stair-up: Upstairs
+    Stair-down: Downstairs
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+  smartphone_position_id: "SP1_Waist"
+
+  ns_conversion: 1e9
+
+MHEALTH:
+  dataset_folder: "MHEALTH/mhealth+dataset/MHEALTHDATASET"
+  output_folder: "MHEALTH"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_units: N/A
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyr: deg/s
+    mag: local (considered uT)
+
+  positions:
+    - Chest
+    - Left ankle
+    - Right lower arm
+
+  # Dataset parser implementation variables
+  activity_map:
+    1: Standing
+    2: Sitting
+    3: LyingDown
+    4: Walking
+    5: Upstairs
+    11: Running
+
+  device_id: "Shimmer2"
+  ns_conversion: 1e9
+
+  position_sensor_map:
+    Chest:
+      Accelerometer: [0, 3]
+    Ankle:
+      Accelerometer: [5, 8]
+      Gyroscope: [8, 11]
+      Magnetometer: [11, 14]
+    Arm:
+      Accelerometer: [14, 17]
+      Gyroscope: [17, 20]
+      Magnetometer: [20, 23]
+
+MotionSense:
+  dataset_folder: "MotionSense"
+  output_folder: "MotionSense"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: s
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: g
+    gyr: rad/s
+
+  positions:
+    - Front pocket
+
+  # Dataset parser implementation variables
+  activity_map:
+    wlk: Walking
+    sit: Sitting
+    jog: Running
+    dws: Downstairs
+    ups: Upstairs
+    std: Standing
+
+  device_id: "iPhone6s"
+  sensor_position: "Pocket"
+
+  output_columns: ["timestamp", "x", "y", "z"]
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+OPPORTUNITY:
+  dataset_folder: "OPPORTUNITY/opportunity+activity+recognition/OpportunityUCIDataset/dataset"
+  output_folder: "OPPORTUNITY"
+
+  # Dataset basic info
+  rate: 30
+  rate_unit: Hz
+  time_unit: ms
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: mg
+    gyro: unknown
+    mag: unknown
+
+  positions:
+    - Left upper arm up
+    - Left upper arm down
+    - Left wrist
+    - Left hand
+    - Left shoe
+    - Right upper arm up
+    - Right upper arm down
+    - Right wrist
+    - Right hand
+    - Right knee up
+    - Right knee down
+    - Right hip
+    - Right shoe
+    - Back
+
+
+  # Dataset parser implementation variables
+  activity_map:
+    Walk: Walking
+    Sit: Sitting
+    Lie: LyingDown
+    Stand: Standing
+
+  granularity: macro
+  min_samples_per_session: 15
+  ms2_conversion: 0.00980665
+  ns_conversion: 1000000
+
+  prefix_ranges:
+    W:
+      - [1, 133]
+      - [231, 242]
+
+  locomotion_column: "Locomotion"
+  activity_column: "Label"
+  timestamp_column: "Timestamp"
+
+  label_columns:
+    "243": "Locomotion"
+    "244": "HL_Activity"
+    "245": "LL_Left_Arm"
+    "246": "LL_Left_Arm_Object"
+    "247": "LL_Right_Arm"
+    "248": "LL_Right_Arm_Object"
+    "249": "ML_Both_Arms"
+
+  position_map:
+    RUA^: RightUpperArm^
+    RUA_: RightUpperArm_
+    RUA: RightUpperArm
+    LUA^: LeftUpperArm^
+    LUA_: LeftUpperArm_
+    LUA: LeftUpperArm
+    RWR: RightWrist
+    LWR: LeftWrist
+    RH: RightHand
+    LH: LeftHand
+    BACK: Back
+    HIP: Hip
+    RKN^: RightKnee^
+    RKN_: RightKnee_
+    RKN: RightKnee
+    LKN^: LeftKnee^
+    LKN_: LeftKnee_
+    LKN: LeftKnee
+    L-SHOE: LeftShoe
+    R-SHOE: RightShoe
+    RLA: RightLowerArm
+    LLA: LeftLowerArm
+    TAG1: Shoulder
+    TAG2: Shoulder
+    TAG3: Shoulder
+    TAG4: Shoulder
+
+  column_names_file: "column_names.txt"
+  label_legend_file: "label_legend.txt"
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+  mag_filename: "Magnetometer.txt"
+
+  # Partition
+  test_ratio: 0.2
+  random_seed: 42
+
+PAMAP2:
+  dataset_folder: "PAMAP2/pamap2+physical+activity+monitoring/PAMAP2_Dataset/PAMAP2_Dataset"
+  output_folder: "PAMAP2"
+
+  # Dataset basic info
+  rate: 100
+  rate_unit: Hz
+  time_unit: s
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyro: rad/s
+    mag: uT
+
+  positions:
+    - Wrist
+    - Ankle
+    - Chest
+
+  # Dataset parser implementation variables
+  activity_map:
+    1: LyingDown
+    2: Sitting
+    3: Standing
+    4: Walking
+    5: Running
+    12: Upstairs
+    13: Downstairs
+
+  device_id: "Colibri"
+  ns_conversion: 1e9
+
+  position_map:
+    Hand: [3, 20]
+    Chest: [20, 37]
+    Ankle: [37, 54]
+
+  sensor_map:
+    Accelerometer: [1, 4]
+    Gyroscope: [7, 10]
+    Magnetometer: [10, 13]
+
+RealWorldHAR:
+  dataset_folder: "RealWorld/realworld2016_dataset"
+  output_folder: "RealWorldHAR"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: ms
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyro: rad/s
+    mag: uT
+
+  positions:
+    - Chest
+    - Forearm
+    - Head
+    - Shin
+    - Thigh
+    - Upper arm
+    - Waist
+
+  # Dataset parser implementation variables
+  activity_map:
+    walking: Walking
+    sitting: Sitting
+    running: Running
+    lying: LyingDown
+    climbingdown: Downstairs
+    climbingup: Upstairs
+    standing: Standing
+
+  column_names: ["attr_time", "attr_x", "attr_y", "attr_z"]
+
+  ns_conversion: 1e6
+
+  position_map:
+    chest: Chest
+    forearm: Forearm
+    head: Head
+    shin: Shin
+    thigh: Thigh
+    upperarm: Arm
+    waist: Waist
+
+  position_to_device:
+    Forearm: LGGWatchR
+    Chest: SamsungGalaxyS4
+    Head: SamsungGalaxyS4
+    Shin: SamsungGalaxyS4
+    Thigh: SamsungGalaxyS4
+    Arm: SamsungGalaxyS4
+    Waist: SamsungGalaxyS4
+
+  folder_sensor: ['acc', 'gyr', 'mag']
+
+  sensor_map:
+    acc: Accelerometer
+    Gyroscope: Gyroscope
+    MagneticField: Magnetometer
+
+Shoaib13:
+  dataset_folder: "Shoaib13/activity-recognition-dataset-shoaib/Activity_Recognition_DataSet"
+  output_folder: "Shoaib13"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: ms
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+    mag: microTesla
+
+  positions:
+    - Belt
+    - Right Arm
+    - Right Pocket
+    - Right Wrist
+
+  # Dataset parser implementation variables
+  activity_map:
+    Walking: Walking
+    Sitting: Sitting
+    Running: Running
+    Downstairs: Downstairs
+    Upstairs: Upstairs
+    Standing: Standing
+
+  position_map:
+    Arm: Arm
+    Belt: Belt
+    Wrist: Wrist
+    Pocket: Pocket
+
+  user_prefix: "S"
+  device_prefix: "GalaxyS2_"
+  time_gap_threshold: 1000e9
+  time_gap_threshold_trial: 1e9
+
+  ms_constant: 1e6
+  ns_conversion: 1e9
+
+  timestamp_column: "Time_Stamp"
+  activity_column: "Activity_Label"
+
+  user_change: "user_change"
+  trial_change: "trial_change"
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+  mag_filename: "Magnetometer.txt"
+
+  acc_columns:
+    - Ax
+    - Ay
+    - Az
+
+  gyr_columns:
+    - Gx
+    - Gy
+    - Gz
+
+  mag_columns:
+    - Mx
+    - My
+    - Mz
+
+Shoaib14:
+  dataset_folder: "Shoaib14/sensors-activity-recognition-dataset-shoaib/DataSet"
+  output_folder: "Shoaib14"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: N/A
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+    mag: microTesla
+
+  positions:
+    - Belt
+    - Left Pocket
+    - Right Pocket
+    - Right Upper Arm
+    - Right Wrist
+
+  # Dataset parser implementation variables
+  activity_map:
+    walking: Walking
+    standing: Standing
+    sitting: Sitting
+    upsatirs: Upstairs
+    upstairs: Upstairs
+    downstairs: Downstairs
+
+  position_map:
+    Belt: Belt
+    Left_pocket: LeftPocket
+    Right_pocket: RightPocket
+    Upper_arm: UpperArm
+    Wrist: Wrist
+
+  sensors_map:
+    A: Accelerometer
+    L: LinearAccelerometer
+    G: Gyroscope
+    M: Magnetometer
+
+  original_part: "Participant_"
+  standardized_part: "S"
+  sp_id: "SP1_"
+
+  activity_column: "activity"
+  timestamp_column: "time_stamp"
+  timestamp_indicator: "_time_stamp"
+  ns_conversion: 1e9
+
+Shoaib16:
+  dataset_folder: "Shoaib16/ut-data-complex/UT_Data_Complex"
+  output_folder: "Shoaib16"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: N/A
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+    mag: microTesla
+
+  positions:
+    - Pocket
+    - Wrist
+
+  # Dataset parser implementation variables
+  activity_map:
+    Walking: "11111"
+    Standing: "11112"
+    Sitting: "11114"
+    Upstairs: "11116"
+    Downstairs: "11117"
+    Running: "11113"
+
+  position_map:
+    pocket: Pocket
+    wrist: Wrist
+
+  position_to_model:
+    pocket: SP1
+    wrist: SW1
+
+  n_participants:
+    Walking: 10
+    Standing: 10
+    Sitting: 10
+    Upstaits: 10
+    Downstairs: 10
+    Running: 10
+
+  columns:
+    - Timestamp
+    - Ax
+    - Ay
+    - Az
+    - Lx
+    - Ly
+    - Lz
+    - Gx
+    - Gy
+    - Gz
+    - Mx
+    - My
+    - Mz
+    - Activity
+
+  columns_sensors:
+    a_columns:
+      - Timestamp
+      - Ax
+      - Ay
+      - Az
+    l_columns:
+      - Timestamp
+      - Lx
+      - Ly
+      - Lz
+    g_columns:
+      - Timestamp
+      - Gx
+      - Gy
+      - Gz
+    m_columns:
+      - Timestamp
+      - Mx
+      - My
+      - Mz
+
+  filenames:
+    - Accelerometer
+    - LinearAccelerometer
+    - Gyroscope
+    - Magnetometer
+
+  ns_conversion: 1e9
+  timestamp_column: "Timestamp"
+  activity_column: "Activity"
+  file_prefix: "smartphoneat"
+
+UCIHAR:
+  dataset_folder: "UCIHAR/human+activity+recognition+using+smartphones/UCI HAR Dataset/UCI HAR Dataset"
+  output_folder: "UCI_HAR"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: s
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+  sensor_units:
+    acc: g
+    gyro: rad/s
+
+  positions:
+    - Waist
+
+  # Dataset parser implementation variables
+  activity_map:
+    1: Walking
+    2: Upstairs
+    3: Downstairs
+    4: Sitting
+    5: Standing
+    6: LyingDown
+
+  ns_conversion: 1e9
+
+  sensor_id: "SamsungGalaxySII"
+  sensor_position: "Waist"
+  sensor_columns:
+  - total_acc_x
+  - total_acc_y
+  - total_acc_z
+  - body_gyro_x
+  - body_gyro_y
+  - body_gyro_z
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+  splits:
+    - train
+    - test
+
+UniMiB-SHAR:
+  dataset_folder: "UniMiB-SHAR/data"
+  output_folder: "UniMiB-SHAR"
+
+  # Dataset basic info
+  rate: 50
+  rate_unit: Hz
+  time_unit: N/A
+
+  sensors:
+    - Accelerometer
+  sensors_units:
+    - m/s²
+
+  positions:
+    - Left Pocket
+    - Right Pocket
+
+  # Dataset parser implementation variables
+  activity_map:
+    going_down: Downstairs
+    going_up: Upstairs
+    running: Running
+    walking: Walking
+
+  position_map:
+    1: RightPocket
+    2: LeftPocket
+
+  timestamp_column: "Timestamp"
+  activity_column: "ActivityType"
+  subject_coloumn: "Subject"
+  repetition_column: "Repetition"
+  sample_id_column: "SampleID"
+
+  data_filename: "adl_data.mat"
+  labels_filename: "adl_labels.mat"
+  names_filename: "adl_names.mat"
+  acc_filename: "Accelerometer.txt"
+
+  mat_variables:
+    data: "adl_data"
+    labels: "adl_labels"
+    names: "adl_names"
+
+  axes:
+    - X
+    - Y
+    - Z
+
+  device_id: "SamsungGalaxyNexusI9250_"
+  seg_len: 151  # samples per axis
+  ns_conversion: 1e9
+
+USC-HAD:
+  dataset_folder: "USC-HAD/USC-HAD/USC-HAD"
+  output_folder: "USC-HAD"
+
+  # Dataset basic info
+  rate: 100
+  rate_unit: Hz
+
+  sensors:
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+  sensors_units:
+    acc: g
+    gyr: deg/s
+    mag: uT
+
+  # Dataset parser implementation variables
+  activity_map:
+    1: Walking
+    2: Walking
+    3: Walking
+    4: Upstairs
+    5: Downstairs
+    6: Running
+    7: Jumping
+    8: Sitting
+    9: Standing
+    10: LyingDown
+    11: LiftUp
+    12: LiftDown
+  keep_activities: ["Walking", "Running", "Standing", "Sitting", "Downstairs", "Upstairs", "LyingDown", "LiftUp", "LiftDown"]
+
+  ns_conversion: 1e9
+
+  output_columns:
+    acc: ["timestamp", "Ax", "Ay", "Az"]
+    gyro: ["timestamp", "Gx", "Gy", "Gz"]
+
+  sensor_id: "MotionNode"
+  sensor_position: "Waist"
+
+  acc_filename: "Accelerometer.txt"
+  gyr_filename: "Gyroscope.txt"
+
+WISDM:
+  dataset_folder: "WISDM/wisdm+smartphone+and+smartwatch+activity+and+biometrics+dataset/wisdm-dataset/wisdm-dataset"
+  output_folder: "WISDM"
+
+  # Dataset basic info
+  rate: 20
+  rate_unit: Hz
+  time_unit: ns
+
+  sensors_available: # attention
+    - Accelerometer
+    - Gyroscope
+  sensors_units:
+    acc: m/s²
+    gyr: rad/s
+
+  positions:
+    - Pocket
+    - Hand
+
+  # Dataset parser implementation variables
+  activity_map:
+    walking: Walking
+    jogging: Running
+    stairs: Stairs
+    sitting: Sitting
+    standing: Standing
+
+  columns:
+    - subject_id
+    - activity
+    - timestamp
+    - x
+    - y
+    - z
+
+  output_columns:
+    - timestamp
+    - x
+    - y
+    - z
+
+  equipments:
+    - phone
+    - watch
+
+  sensors:
+    - accel
+    - gyro
+
+  position_tags:
+    phone: SP1_pocket
+    watch: LGGWatch_hand
+
+  sensor_to_filename:
+    accel: Accelerometer.txt
+    gyro: Gyroscope.txt
+
+  expected_n_columns: 6
+  converter_column_index: 5
+  raw_folder: raw
+  activity_key_file: activity_key.txt
+  activity_column: activity
+  time_column: timestamp
+  run_id_column: run_id
+
+  # Partition
+  test_ratio: 0.2
+  random_seed: 42
